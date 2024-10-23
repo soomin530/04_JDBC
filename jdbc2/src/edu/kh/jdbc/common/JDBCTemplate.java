@@ -4,9 +4,6 @@ package edu.kh.jdbc.common;
 // 트랜젝션(commit, rollback)이 묶여있음	
 
 import java.io.FileInputStream;
-// 클래스 내부의 중복코드를 처리하는 클래스가 담겨있는 패키지
-// - Connection 생성, Connection/Statement/PreparedStatement 반환 메서드,
-//   트렌잭션(commit, rollback)이 묶여있음
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -82,8 +79,15 @@ public class JDBCTemplate {
 
 			// 2. Properties 메서드를 이용해서
 			//    driver.xml 파일 내용을 읽어오기
+			
+			// resources 폴더의 파일을 읽어오는 방법
 			String filePath = "driver.xml";
-			// 프로젝트 폴더 바로 아래 driver.xml 파일 경로
+			// -> 빌드 시 컴파일된 JDBCTemplate.class 파일의 위치에서
+			// /xml/driver.xml 파일을 찾아 실제 경로를 얻어오는 방법
+			// (src/main/resources 폴더 기준으로 경로 작성!!)
+			
+			
+			System.out.println(filePath); 
 
 			prop.loadFromXML(new FileInputStream(filePath));
 
@@ -98,15 +102,16 @@ public class JDBCTemplate {
 			// jdbc:oracle:thin:@localhost:1521:XE
 
 			String userName = prop.getProperty("userName");
-			// kh_wsm
+			// todoList_jdbc
 
 			String password = prop.getProperty("password");
-			// kh1234
+			// todoList1234
 
 			conn = DriverManager.getConnection(url, userName, password);
 
 			// 만들어진 Connection 에서 AutoCommit 끄기
 			conn.setAutoCommit(false);
+			// 원할 때 commit, rollback 할 수 있도록!
 
 		} catch (Exception e) {
 			System.out.println("커넥션 생성 중 예외 발생..");
