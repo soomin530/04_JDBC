@@ -76,18 +76,13 @@ public class JDBCTemplate {
 			// 	    Properties.storeToXML() -> xml 파일 만들기
 			// 	    Properties.loadFromXML() -> xml 파일 읽어오기
 			Properties prop = new Properties();
-
+			
 			// 2. Properties 메서드를 이용해서
 			//    driver.xml 파일 내용을 읽어오기
 			
-			// resources 폴더의 파일을 읽어오는 방법
 			String filePath = "driver.xml";
-			// -> 빌드 시 컴파일된 JDBCTemplate.class 파일의 위치에서
-			// /xml/driver.xml 파일을 찾아 실제 경로를 얻어오는 방법
-			// (src/main/resources 폴더 기준으로 경로 작성!!)
+			// 프로젝트 폴더 바로 아래 driver.xml 파일 경로	
 			
-			
-			System.out.println(filePath); 
 
 			prop.loadFromXML(new FileInputStream(filePath));
 
