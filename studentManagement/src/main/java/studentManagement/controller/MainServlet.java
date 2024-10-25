@@ -1,12 +1,14 @@
 package studentManagement.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import student.dto.Student;
 import studentManagement.service.StudMgmtService;
 import studentManagement.service.StudMgmtServiceImpl;
 
@@ -15,10 +17,11 @@ import studentManagement.service.StudMgmtServiceImpl;
 public class MainServlet extends HttpServlet {
 
 	/*
-	 * 왜 "/main" 메인 페이지 요청을 처리하는 서블릿을 만들었는가?
-	 * 
-	 * - Servlet(Back-End) 에서 추가한 데이터(DB에서 조회한 데이터)를 메인페이지에서 사용할 수 있게 하려고
-	 * 
+	 *   메인페이지 
+	 *   
+	 * - 등록되어있는 모든 학생 목록 출력
+	 * - 학생 목록에서 이름 클릭 시 학생 상세조회 화면 이동
+	 * - 학생 추가 버튼 (클릭 시 학생 추가 화면 이동)    
 	 */
 
 	@Override
@@ -26,15 +29,15 @@ public class MainServlet extends HttpServlet {
 
 		try {
 
-			// Service 객체 생성
-			// 요청 -> Controller -> Service -> DAO -> DB
-			// 응답 <- View <- <- <- <-
 			StudMgmtService service = new StudMgmtServiceImpl();
 			
-
+			List<Student> studList = service.studListFullview();
 			
+			req.setAttribute("studList", studList);
 			
-
+			String path = "/WEB-INF/views/main.jsp";
+			req.getRequestDispatcher(path).forward(req, resp);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

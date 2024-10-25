@@ -52,6 +52,7 @@ public class UserDAO {
 
 			// SQL 수행 후 결과 반환 받기
 			rs = pstmt.executeQuery(); // SELECT문은 executeQuery!
+			
 
 			// 조회 결과가 있을 경우
 			// -> 중복되는 아이디가 없을 경우
@@ -65,7 +66,7 @@ public class UserDAO {
 				String userId = rs.getString("USER_ID");
 				String userPw = rs.getString("USER_PW");
 				String userName = rs.getString("USER_NAME");
-
+				
 				// java.sql.Date 활용
 				Date enrollDate = rs.getDate("ENROLL_DATE");
 

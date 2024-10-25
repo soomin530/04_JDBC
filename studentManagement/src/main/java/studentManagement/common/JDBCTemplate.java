@@ -33,17 +33,6 @@ public class JDBCTemplate {
 					return conn;
 				}
 
-				/*
-				 * driver.xml 파일 만들어 내용 써놓고 여기서 읽어오기
-				 * 
-				 * 이유 1 : 보안상의 이유 (Github에 DB 연결 정보 등 올리면 해킹하라는 뜻..) --> .gitignore 파일에
-				 * driver.xml 작성하여 git이 관리 못하게.
-				 * 
-				 * 이유 2: 혹시라도 DB 연결 정보가 변경될 경우 Java 코드가 아닌 읽어오는 파일의 내용을 수정하면 되기 때문에 Java 코드 수정 X
-				 * -> 추가 재컴파일 필요 X
-				 * 
-				 */
-
 				// 1. Properties 객체 생성
 				// 	  - Map 의 자식 클래스
 				// 	  - K, V가 모두 String 타입
@@ -112,7 +101,7 @@ public class JDBCTemplate {
 
 		/**
 		 * 전달받은 커넥션에서 수행한 SQL을 ROLLBACK 하는 메서드
-		 * 
+		 * DML(INSERT, DELETE, UPDATE)에서 필요 (실패한 경우)
 		 * @param conn
 		 */
 		public static void rollback(Connection conn) {
@@ -128,7 +117,7 @@ public class JDBCTemplate {
 		// --------------------------------------------------------------------
 
 		/**
-		 * 전달받은 커넥션을 close(자원 반환)하는 메서드
+		 * 사용한 Connection 객체를 close(자원 반환)하는 메서드
 		 * 
 		 * @param conn
 		 */
