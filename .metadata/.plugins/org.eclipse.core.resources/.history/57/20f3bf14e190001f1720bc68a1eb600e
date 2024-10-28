@@ -1,0 +1,11 @@
+package edu.kh.todoList.dto;
+
+public class Todo {
+	
+	private int todoNo;       // todo 번호
+	private String title;     // todo 제목
+	private String detail;    // todo 상세내용
+	private boolean complete; // todo 완료여부
+	private String regDate;   // todo 등록일
+
+}

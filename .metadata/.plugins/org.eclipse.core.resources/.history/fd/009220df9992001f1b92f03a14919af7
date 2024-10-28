@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<!-- 등록되어있는 모든 학생 목록 출력 (학생번호, 이름만) -->
+	<entry key="studListFullview">
+		SELECT STD_NO, STD_NAME
+		FROM TB_STUDENT
+		ORDER BY STD_NO ASC <!-- 세미콜론 있으면 안 됨 !! -->
+	</entry>
+
+	<!-- 상세조회 -->
+	<entry key="studDetailView">
+		SELECT STD_NO, STD_NAME, STD_AGE, STD_GENDER,
+		STD_SCORE
+		FROM TB_STUDENT
+		WHERE STD_NO > ?
+		ORDER BY STD_NO ASC
+	</entry>
+
+	<!-- 학생 정보 수정 -->
+	<entry key="studUpdate">
+		UPDATE TB_STUDENT
+		SET STD_NAME = ?,
+		STD_AGE = ?
+		STD_SCORE = ?
+		WHERE
+		TODO_NO = ?
+	</entry>
+
+	<!-- 학생 정보 삭제 -->
+	<entry key="studDelete">
+		DELETE FROM TB_STUDENT
+		WHERE STD_NO = ?
+	</entry>
+
+	<!-- 학생 정보 추가 -->
+	<entry key="studAdd"> <!-- key와 = 사이에 공백 없게 하기. 안 그러면 에러가 나요 -->
+		INSERT INTO TB_STUDENT
+		VALUES(SEQ_STD_NO.NEXTVAL, ?, ?, ?, ?)
+	</entry>
+
+
+
+
+</properties>

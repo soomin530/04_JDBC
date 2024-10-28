@@ -1,0 +1,13 @@
+package edu.kh.todoList.service;
+
+import java.util.Map;
+
+public interface TodoListService {
+
+	/** 할 일 목록 반환 서비스
+	 * @return
+	 */
+	Map<String, Object> todoListFullView(); // 중괄호 없음 -> 추상메서드
+	// 묵시적으로 public 
+
+}

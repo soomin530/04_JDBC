@@ -1,0 +1,8 @@
+package edu.kh.todoList.common;
+
+public class Snippet {
+	public static void main(String[] args) {
+		/xml/driver.xml
+	}
+}
+

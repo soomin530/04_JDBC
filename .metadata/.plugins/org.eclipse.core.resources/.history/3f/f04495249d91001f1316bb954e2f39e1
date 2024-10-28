@@ -1,0 +1,9 @@
+package edu.kh.todoList.controller;
+
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+
+@WebServlet("/todo/detail")
+public class DetailServlet extends HttpServlet {
+
+}

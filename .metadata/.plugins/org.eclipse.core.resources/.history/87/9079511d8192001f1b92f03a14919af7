@@ -1,0 +1,23 @@
+package studentManagement.dao;
+
+import java.sql.Connection;
+import java.util.List;
+
+import student.dto.Student;
+
+public interface StudMgmtDAO {
+
+	/** 학생 목록 전체 조회
+	 * @param conn
+	 * @return
+	 */
+	List<Student> studListFullview(Connection conn) throws Exception;
+
+	/** 학생 정보 상세조회
+	 * @param conn
+	 * @param studNo
+	 * @return
+	 */
+	Student studDetailView(Connection conn, int studNo) throws Exception;
+
+}

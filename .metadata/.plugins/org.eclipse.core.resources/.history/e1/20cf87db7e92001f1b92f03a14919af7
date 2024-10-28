@@ -1,0 +1,40 @@
+package studentManagement.service;
+
+import static studentManagement.common.JDBCTemplate.*;
+
+import java.sql.Connection;
+import java.util.List;
+
+import student.dto.Student;
+import studentManagement.dao.StudMgmtDAO;
+import studentManagement.dao.StudMgmtDAOImpl;
+
+public class StudMgmtServiceImpl implements StudMgmtService {
+	
+	private StudMgmtDAO dao = new StudMgmtDAOImpl();
+
+	@Override
+	public List<Student> studListFullview() throws Exception {
+		
+		Connection conn = getConnection(); 
+		
+		List<Student> studList = dao.studListFullview(conn);
+		
+		close(conn);
+		
+		return studList;
+	}
+
+	@Override
+	public Student studDetailView(int studNo) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		Student stud = dao.studDetailView(conn, studNo);
+		
+		close(conn);
+		
+		return stud;
+	}
+
+}

@@ -1,0 +1,32 @@
+package edu.kh.todoList.controller;
+
+import java.io.IOException;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+// 할 일 상세 조회 요청 처리 Servlet
+@WebServlet("/todo/detail")
+public class DetailServlet extends HttpServlet { 
+	
+	// a 태그 요청은 GET 방식
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		try {
+			
+			
+			
+			
+			
+			
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

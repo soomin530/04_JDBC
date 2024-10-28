@@ -1,0 +1,5 @@
+package studentManagement.dao;
+
+public class StudMgmtDAOImpl implements StudMgmtDAO {
+
+}

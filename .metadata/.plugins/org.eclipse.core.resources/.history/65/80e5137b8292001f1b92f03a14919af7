@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<!-- 등록되어있는 모든 학생 목록 출력 -->
+	<entry key="studListFullview">
+		SELECT STD_NO, STD_NAME
+		FROM TB_STUDENT
+		WHERE STD_NO > 0
+		ORDER BY STD_NO ASC; <!-- 세미콜론 있으면 안 됨 !! -->
+	</entry>
+
+	<!-- 상세조회 -->
+	<entry key="studDetailView">
+		SELECT STD_NO, STD_NAME, STD_AGE, STD_GENDER, STD_SCORE
+		FROM TB_STUDENT
+		WHERE STD_NO > 0
+		ORDER BY STD_NO ASC;
+	</entry>
+
+
+
+</properties>

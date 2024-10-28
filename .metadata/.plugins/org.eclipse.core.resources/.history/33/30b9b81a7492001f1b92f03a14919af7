@@ -1,0 +1,13 @@
+package studentManagement.service;
+
+import java.util.List;
+
+import student.dto.Student;
+
+public interface StudMgmtService {
+
+	List<Student> studListFullview();
+
+	Student studDetailView(int studNo);
+
+}

@@ -1,0 +1,7 @@
+package studentManagement.dao;
+
+public class StudMgmtDAOImpl implements StudMgmtDAO {
+	
+	// JDBC 객체 참조변수 + Properties 참조변수 선언
+
+}

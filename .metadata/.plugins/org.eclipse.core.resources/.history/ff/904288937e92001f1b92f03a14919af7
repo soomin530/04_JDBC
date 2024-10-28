@@ -1,0 +1,51 @@
+package studentManagement.controller;
+
+import java.io.IOException;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import student.dto.Student;
+import studentManagement.service.StudMgmtService;
+import studentManagement.service.StudMgmtServiceImpl;
+
+
+
+@WebServlet("/student/update")
+public class UpdateServlet extends HttpServlet{
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		try {
+			
+			// 전달 받은 파라미터 얻어오기
+			int todoNo = Integer.parseInt(req.getParameter("studNo"));
+			
+			// 수정 화면에는 기존의 제목, 상세내용이
+			// input, textarea에 채워져 있는 상태여야 한다!
+			// -> 수정 전 제목/내용 조회 == 상세조회 서비스 재호출
+			StudMgmtService service = new StudMgmtServiceImpl();
+			Student stud = service.studDetailView(studNo);
+			
+			if(student == null) {
+				// 메인페이지로 redirect
+				resp.sendRedirect("/");
+				return;
+			}
+			
+			// request scope에 todo 객체 세팅
+			req.setAttribute("student", student);
+			
+			// 요청 발송자를 통해 forward
+			String path = "/WEB-INF/views/update.jsp";
+			req.getRequestDispatcher(path).forward(req, resp); // 요청 위임
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

@@ -1,0 +1,16 @@
+package studentManagement.dao;
+
+import java.sql.Connection;
+import java.util.List;
+
+import student.dto.Student;
+
+public interface StudMgmtDAO {
+
+	/**
+	 * @param conn
+	 * @return
+	 */
+	List<Student> studListFullview(Connection conn);
+
+}

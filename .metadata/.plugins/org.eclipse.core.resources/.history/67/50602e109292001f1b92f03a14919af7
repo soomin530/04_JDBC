@@ -1,0 +1,32 @@
+package studentManagement.controller;
+
+import java.io.IOException;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import studentManagement.service.StudMgmtService;
+import studentManagement.service.StudMgmtServiceImpl;
+
+@WebServlet
+public class AddServlet extends HttpServlet {
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		try {
+			
+			StudMgmtService service = new StudMgmtServiceImpl();
+			
+			String stdName = req.getParameter("stdName");
+			int stdAge = req.getParameter("stdAge");
+			String stdGender = req.getParameter("stdGender");
+			String stdScore = req.getParameter("stdScore");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

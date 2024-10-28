@@ -1,0 +1,7 @@
+package studentManagement.service;
+
+public interface StudMgmtService {
+
+	List<Student> studListFullview();
+
+}

@@ -1,0 +1,35 @@
+package edu.kh.todoList.controller;
+
+import java.io.IOException;
+
+import edu.kh.todoList.service.TodoListService;
+import edu.kh.todoList.service.TodoListServiceImpl;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+@WebServlet("/todo/add")
+public class TodoAddServlet extends HttpServlet {
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+		try {
+
+			// 1. TodoListServiceImpl 객체 생성
+			TodoListService service = new TodoListServiceImpl();
+
+			// 2. 요청 시 전달받은 파라미터 얻어오기
+			String title = req.getParameter("title");
+			String detail = req.getParameter("detail");
+
+			// 3. 서비스 호출 후 결과 반환받기
+			int index = service.todoAdd();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

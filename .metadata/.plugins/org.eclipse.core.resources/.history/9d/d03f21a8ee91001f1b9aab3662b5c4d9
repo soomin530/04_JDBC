@@ -1,0 +1,11 @@
+package student.dto;
+
+public class Student {
+	
+	private int stuNo;
+	private String title;     // todo 제목
+	private String detail;    // todo 상세내용
+	private boolean complete; // todo 완료여부
+	private String regDate;   // todo 등록일
+
+}

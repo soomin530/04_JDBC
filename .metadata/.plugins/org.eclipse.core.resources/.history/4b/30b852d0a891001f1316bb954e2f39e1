@@ -1,0 +1,20 @@
+// 할 일 상세 조회 페이지에서 쿼리스트링 값 얻어오기
+// url 에서 얻어오면 된다 (쿼리스트링 부분 ?todoNo=4)
+
+// location.search : 쿼리스트링만 얻어오기
+// URLSearchParams : 쿼리스트링을 객체 형태로 다룰 수 있는 객체
+
+const todoNo = new URLSearchParams(location.search).get("todoNo"); // 할 일 번호
+// ?todo=4
+// -> todoNo = 4
+
+//console.log(todoNo);
+
+
+// 목록으로 버튼 클릭 시
+
+// 완료 여부 변경 버튼 클릭 시 
+
+// 삭제 버튼 클릭 시 
+
+// 수정 버튼 클릭 시

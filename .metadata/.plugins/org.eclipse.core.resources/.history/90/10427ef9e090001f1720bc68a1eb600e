@@ -1,0 +1,11 @@
+package edu.kh.todoList.dto;
+
+public class Todo {
+	
+	private int todoNo;
+	private String title;
+	private String detail;
+	private boolean complete;
+	private String regDate;
+
+}
